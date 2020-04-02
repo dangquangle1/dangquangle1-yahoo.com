@@ -1,0 +1,85 @@
+//CS 222
+//Dang-Quang Le
+//Blackjack Game (Project 1)
+
+#include <stdlib.h>
+#include <stdio.h>
+#include <math.h>
+#include <string.h>
+
+//function prototypes
+void report();
+int dealing();
+void playing(double bankroll, double bet, int gamerecord[]);
+
+
+int main ()
+{
+double bankroll = 1000;
+double bet;
+int gamerecord[2];
+playing(bankroll, bet, gamerecord[2]);
+
+
+
+}
+
+//deals and displays the users cards and the dealers hole card
+int dealing(void)
+{
+int phand; //player hand
+int dhand; //dealers hand
+int dhandshow; //dealers shown card
+
+srand(time(NULL));
+phand=(2 + rand() % 9) + (2 + rand() % 9);
+
+dhandshow=(2 + rand() % 9);
+dhand = dhandshow + (2 + rand() % 9);
+
+printf("You have been dealt: %d \n", phand);
+printf("The dealers card is: %d \n", dhandshow);
+
+}
+
+void playing(bankroll, bet, gamerecord[])
+{
+int bet;
+double bankroll;
+char choice;
+int phand;
+
+printf("Welcome to Blackjack, how much would you like to bet? (10 - 1000) \n");
+scanf("%d", &bet);
+
+bankroll = bankroll - bet;
+dealing();
+
+printf("Would you like to (h)it or (s)tand? \n");
+scanf("%lf", &choice);
+
+while (choice = 'h')
+{
+srand(time(NULL));
+phand = phand + (2 + rand() % 9);
+
+if (phand > 21)
+{
+printf("You have busted and lost your bet \n");
+}
+else
+{
+printf("You hit and now have: %d \n", phand);
+printf("Would you like to (h)it or (s)tand? \n");
+scanf("%lf", &choice);
+}
+
+}
+
+
+}
+
+//void report(double bankroll, double bet, int gamerecord[])
+
+
+
